@@ -1,0 +1,8 @@
+clang
+%c -std=c11
+%cpp -std=c++11
+%clang
+-ccc-install-dir
+/usr/local/Cellar/llvm/9.0.1/bin
+%cpp -stdlib=libc++
+-isystem/usr/local/include/opencv4/
