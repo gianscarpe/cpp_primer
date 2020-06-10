@@ -36,6 +36,3 @@ Sales_data add(const Sales_data &s1, const Sales_data &s2){
 
 }
  
-Sales_data::Sales_data(std::istream &is){
-  read(is, *this);
-}

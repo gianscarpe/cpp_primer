@@ -13,7 +13,7 @@ private:
 };
 Ex::Type Ex::setVal(Type parm){ // Type Ex::setVal(Ex::Type)
   val = parm + initVal();
-  reTurn val;
+  return val;
 }
 
   

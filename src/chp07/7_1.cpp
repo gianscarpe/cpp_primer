@@ -5,7 +5,7 @@ Gianluca Scarpellini - gianluca@scarpellini.dev
 
 */
 
-#include "Sales_data.h"
+#include "Sales_data.hpp"
 #include <iostream>
 
 /*
@@ -59,6 +59,7 @@ void ex_7_7(){
 }
 */
 void ex_7_11(){
+  
   Sales_data data1(std::cin), data2(std::cin);
 
   Sales_data sum(data1.isbn());
@@ -74,7 +75,7 @@ void ex_7_11(){
               << data1.isbn() << " second: " << data2.isbn() << std::endl;
   }
 }
-
+ 
 int main(){
   //ex_7_2();
   //ex_7_7();
