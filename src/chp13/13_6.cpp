@@ -5,6 +5,26 @@
 
 using std::vector; using std::cin; using std::endl; using std::cout;
 
+class Foo {
+public:
+  Foo() = default;
+  Foo(const Foo &f) : data(f.data) { cout << "copy c" << endl;}
+  Foo(Foo &&f) : data(f.data) {cout << "move c" << endl;}
+  
+  Foo sorted() && {
+		   cout << "Sort inplace" << endl;
+		   return *this;
+  }
+  Foo sorted() const & {
+			cout << "Sort" << endl;
+			Foo ret(*this);
+			return Foo(*this) .sorted();
+  }
+
+private:
+  vector<int> data = {4, 3, 2, 1};
+};
+
 
 int f(){
   return 42;
@@ -38,7 +58,14 @@ void ex13_44(){
   cout << "END" << endl;
 }
 
+void ex13_56(){
+  cout << "Sorted ex" << endl;
+  Foo f;
+  f.sorted();
+}
+
 int main(){
   ex13_46();
   ex13_44();
+  ex13_56();
 }

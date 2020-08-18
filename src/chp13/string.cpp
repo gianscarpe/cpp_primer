@@ -1,6 +1,8 @@
 #include "String.hpp"
 #include <utility>
 #include <iostream>
+#include <memory>
+#include <cstdlib>
 
 using std::pair; using std::cout; using std::endl;
 
