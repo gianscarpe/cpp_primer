@@ -12,6 +12,7 @@ public:
   ~StrVec();
 
   void push_back(const std::string&);
+  void push_back(std::string&&);
 
   size_t size() {return first_free - elements;}
   size_t capacity() { return cap - elements; }

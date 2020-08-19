@@ -23,6 +23,11 @@ String::~String(){
   free();
 }
 
+String::String(String&& s) noexcept : elements(s.elements), end(s.end){
+  cout << "Move construct" << endl;
+  s.elements = s.end = nullptr;
+}
+
 String::String(const char *e) {
     cout << "Copy construct" << endl;
     size_t d = 0;
@@ -44,7 +49,7 @@ String& String::operator=(const String& rhs){
   return *this;
 }
 
-void print(String s){
+void print(String& s){
   for(auto it = s.elements; it != s.end; ++it){
     cout << *it;
   }

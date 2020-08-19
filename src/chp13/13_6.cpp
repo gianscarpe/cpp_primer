@@ -2,9 +2,9 @@
 #include <vector>
 #include <iostream>
 #include "String.hpp"
+#include "HasPtr.hpp"
 
 using std::vector; using std::cin; using std::endl; using std::cout;
-
 
 int f(){
   return 42;
@@ -38,7 +38,20 @@ void ex13_44(){
   cout << "END" << endl;
 }
 
+void ex13_52(){
+  cout << "Ex 13.52" << endl;
+  HasPtr hp1("ciao"), hp2("hi");
+  hp1 = hp2;
+  print(hp1);
+  print(hp2);
+  
+  hp1 = std::move(hp2);
+  cout << "END move" << endl;
+  print(hp1);  
+}
+
 int main(){
   ex13_46();
   ex13_44();
+  ex13_52();
 }

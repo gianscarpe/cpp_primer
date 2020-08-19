@@ -4,9 +4,10 @@
 
 class String{
 public:
-  friend void print(String);
+  friend void print(String& );
   String() : elements(nullptr){};
   String(const char*);
+  String(String&&) noexcept;
   String& operator=(const String&);
   ~String();
 private:

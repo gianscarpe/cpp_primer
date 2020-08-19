@@ -30,6 +30,7 @@ void sec8_2(int argc, char* argv[]){
               << data1.isbn() << " second: " << data2.isbn() << std::endl;
   }
 }
+
 vector<string> process_input(std::istream &in){
   vector<string> read;
   string line;
