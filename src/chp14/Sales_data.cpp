@@ -1,5 +1,8 @@
 #include "Sales_data.hpp"
 #include <iostream>
+#include <string>
+
+using std::string;
 
 double Sales_data::avg_price() const {
   if (units_sold)
@@ -20,6 +23,11 @@ Sales_data operator+(const Sales_data& lhs, const Sales_data& rhs){
 Sales_data& Sales_data::operator+=(const Sales_data& rhs){
   units_sold += rhs.units_sold;
   revenue += rhs.revenue;
+  return *this;
+}
+
+Sales_data& Sales_data::operator=(const string s){
+  bookNo = s;
   return *this;
 }
 
