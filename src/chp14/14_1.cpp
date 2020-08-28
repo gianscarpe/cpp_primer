@@ -1,4 +1,5 @@
 #include "Sales_data.hpp"
+#include "String.hpp"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -27,6 +28,13 @@ void sec14_1(){
   }
 }
 
+void ex14_16(){
+  String s1("hi"), s2("hi");
+  cout << s1 << " " << s2 << endl;
+  assert(s1 == s2);
+}
+
 int main(){
   sec14_1();
+  ex14_16();
 }

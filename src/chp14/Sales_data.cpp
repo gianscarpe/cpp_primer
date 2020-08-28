@@ -32,13 +32,33 @@ std::istream& read(std::istream &is, Sales_data &item){
   
 }
 
+bool operator!=(const Sales_data& lhs, const Sales_data& rhs){
+  return !(lhs == rhs);
+}
+
+bool operator==(const Sales_data& lhs, const Sales_data& rhs){
+  return lhs.isbn() == rhs.isbn() && lhs.units_sold == rhs.units_sold &&
+    lhs.revenue == rhs.revenue;
+  
+}
+
 std::ostream& operator<<(std::ostream& is, const Sales_data& item){
   return print(is, item);
 }
 
 
-std::istream& operator>>(std::istream& os, Sales_data& item){
-  return read(os, item);
+std::istream& operator>>(std::istream& is, Sales_data& item){
+
+  double price = 0;
+  is >> item.bookNo >> item.units_sold >> price;
+  if (is) {
+    item.revenue = price * item.units_sold;
+    std::cout << "READ: " << item << std::endl;
+  }
+  else
+    item = Sales_data();
+  return is;
+ 
 }
 
 
