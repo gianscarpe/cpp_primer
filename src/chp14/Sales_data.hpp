@@ -23,6 +23,7 @@ public:
   Sales_data(const std::string &s) : Sales_data(s, 0, 0) {};
   Sales_data(std::istream &is) : Sales_data(){is >> *this;} ;
   Sales_data& operator+=(const Sales_data&);
+  Sales_data& operator=(const std::string);
   std::string isbn() const { return bookNo; }
   explicit operator std::string() const { return bookNo; }
   explicit operator double() const { return avg_price(); }
