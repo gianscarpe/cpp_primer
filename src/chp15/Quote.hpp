@@ -1,18 +1,20 @@
 #ifndef QUOTE_HPP
 #define QUOTE_HPP
 #include <string>
+
 class Quote { 
 public: 
   Quote() = default;  // = default  see § 7.1.4 (p. 264)
-  Quote(const Quote&) = default; // copy-constructor
+  Quote(const Quote&);
+
   Quote(Quote&&) = default; // move-constructor
   
   Quote(const std::string &book, double sales_price): 
     bookNo(book), price(sales_price) { }
 
-  Quote& operator=(const Quote&) = default; // copy-assignment
-  Quote& operator=(Quote&&) = default; // move-assignment
-  virtual ~Quote() = default; // dynamic binding for the destructor private:
+  Quote& operator=(const Quote&); // copy-assignment
+  Quote& operator=(Quote&&); // move-assignment
+  virtual ~Quote(); // dynamic binding for the destructor private:
   
   std::string isbn() const { return bookNo; } 
   // returns the total sales price for the specified number of items 
@@ -42,7 +44,13 @@ protected:
 
 class Bulk_quote : public Disc_quote{
 public:
-  Bulk_quote() = default; // Possible only if all the base classes have default constuctor
+  Bulk_quote() = default; // Possible only if all the base classes have default
+			  // constuctor
+  Bulk_quote(const Bulk_quote&);
+  Bulk_quote& operator=(const Bulk_quote&);
+  Bulk_quote& operator=(Bulk_quote&&);
+  ~Bulk_quote();
+  
   Bulk_quote(const std::string&, double, std::size_t, double);
   double net_price(std::size_t) const override;
 };
