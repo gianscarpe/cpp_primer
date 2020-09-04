@@ -1,4 +1,4 @@
-#ifndef GEOM_HPP
+  #ifndef GEOM_HPP
 #define GEOM_HPP
 
 class Figure{
