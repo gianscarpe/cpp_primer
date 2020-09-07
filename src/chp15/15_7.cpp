@@ -65,15 +65,27 @@ void ex15_28(){
 }
 
 
-void sec15_7_4(){
+void ex15_30(){
   Basket bsk;
-  bsk.add_item(make_shared<Quote>("aaa", 45));
-  bsk.add_item(make_shared<Bulk_quote>("bbb", 45, 3., .15));
+  bsk.add_item(Quote("aaa", 45));
+  bsk.add_item(Quote("aaa", 45));
+  bsk.add_item(Quote("aaa", 45));
+  bsk.add_item(Quote("aaa", 45));
+  bsk.add_item(Quote("aaa", 45));
+	
+  bsk.add_item(Bulk_quote("bbb", 45, 1, .15));
+  bsk.add_item(Bulk_quote("bbb", 45, 1, .15));
+  bsk.add_item(Bulk_quote("bbb", 45, 1, .15));
+  bsk.add_item(Bulk_quote("bbb", 45, 1, .15));
+  bsk.add_item(Bulk_quote("bbb", 45, 1, .15));
+  bsk.total_receipt(cout);
 
+  cout << Bulk_quote("bbb", 45, 1, .15).net_price(5) << endl;
   
 }
 
 int main(){
   ex15_26();
   ex15_28();
+  ex15_30();
 }

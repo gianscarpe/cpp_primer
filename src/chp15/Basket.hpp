@@ -9,9 +9,10 @@
 class Basket {
 public:
 
-  void add_item(const std::shared_ptr<Quote> &sale){
-    items.insert(sale);
-  }
+  void add_item(const Quote&);
+
+  void add_item(Quote&&);
+  
   double total_receipt(std::ostream&) const;
   private:
   static bool compare(const std::shared_ptr<Quote>& lhs, const

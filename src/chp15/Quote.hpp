@@ -5,6 +5,7 @@
 class Quote { 
 public: 
   Quote() = default;  // = default  see § 7.1.4 (p. 264)
+
   Quote(const Quote&);
 
   Quote(Quote&&) = default; // move-constructor
@@ -13,7 +14,14 @@ public:
     bookNo(book), price(sales_price) { }
 
   Quote& operator=(const Quote&); // copy-assignment
+
   Quote& operator=(Quote&&); // move-assignment
+  
+  // dyn. allocated  copy of itself
+  virtual Quote* clone() const & { return new Quote(*this); } 
+  virtual Quote* clone() && { return new Quote(std::move(*this)); } 
+  
+  
   virtual ~Quote(); // dynamic binding for the destructor private:
   
   std::string isbn() const { return bookNo; } 
@@ -35,6 +43,7 @@ public:
   Disc_quote(const std::string&, double, std::size_t, double);
   double net_price(std::size_t) const override = 0;
   virtual void debug() override;
+
 protected:
   std::size_t min_qt = 0;
   double discount = 0.0;
@@ -52,6 +61,9 @@ public:
   Bulk_quote(Bulk_quote&&);
   Bulk_quote& operator=(const Bulk_quote&);
   Bulk_quote& operator=(Bulk_quote&&);
+  virtual Bulk_quote* clone() const & override { return new Bulk_quote(*this); } 
+  virtual Bulk_quote* clone() && override { return new Bulk_quote(std::move(*this)); } 
+
   ~Bulk_quote();
   
   Bulk_quote(const std::string&, double, std::size_t, double);

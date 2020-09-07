@@ -76,6 +76,7 @@ Bulk_quote::~Bulk_quote(){
 }
 
 double Bulk_quote::net_price(size_t cnt) const{
+  cout << "Bulk quote net price" << endl;
   return (cnt > min_qt) ? cnt * (1 - discount) * price : Quote::net_price(cnt);
 }
 
