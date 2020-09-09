@@ -1,5 +1,6 @@
 #ifndef QR_H
 #define QR_H
+
 #include <string>
 #include <memory>
 #include <vector>
@@ -12,18 +13,25 @@ public:
               const std::shared_ptr<std::set<int>> _wc)
     : query(s), lines(_lines), wc(_wc) {};
 
-private : std::string query;
-  std::shared_ptr<std::vector<std::string>> lines;
+
+  std::set<int>::iterator begin(){
+    return wc->begin();
+  }
+
+  std::set<int>::iterator end(){
+    return wc->end();
+  }
+
+  std::shared_ptr<std::vector<std::string>> get_file(){
+    return lines;
+  };
+
+private :
+  std::string query;
+  std::shared_ptr<std::vector<std::string>> lines; // input file
   std::shared_ptr<std::set<int>> wc;
 };
 
-std::ostream& print(std::ostream &out, const QueryResult& r){
-  out << "Total number of found: " << r.wc->size() << " ";
-  for(auto i : *r.wc){
-    std::cout << "(line " << i << ") " << r.lines->at(i) << std::endl;
-  }
-  return out;
-}
 
 
 #endif
