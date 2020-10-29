@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Quote.hpp"
+
 using std::cout; using std::endl;
 
 void print_total(std::ostream& os, const Quote& item, size_t n){

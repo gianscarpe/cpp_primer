@@ -1,8 +1,9 @@
-#include "blob.hpp"
+
+#include "Blob.hpp"
 #include <exception>
 #include <string>
-using std::string;
 
+using std::string;
 using std::make_shared;
 
 StrBlob::StrBlob() : data(make_shared<vector<string>>()) {};

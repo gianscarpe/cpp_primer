@@ -1,5 +1,5 @@
-#ifndef BLOB_H
-#define BLOB_H
+#ifndef STRBLOB_HPP
+#define STRBLOB_HPP
 
 #include <memory>
 #include <vector>

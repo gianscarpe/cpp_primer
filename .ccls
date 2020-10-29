@@ -4,7 +4,9 @@ clang
 %h -std=c++11
 %clang
 -ccc-install-dir
-/usr/local/Cellar/llvm/9.0.1/bin
--I/usr/local/Cellar/llvm/9.0.1/bin
+/usr/local/Cellar/llvm/11.0.0/bin
+-I/usr/local/Cellar/llvm/11.0.0/bin
+-isystem /usr/local/include/opencv4
+
 %cpp -stdlib=libc++
 --gcc-toolchain=/usr

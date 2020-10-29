@@ -3,9 +3,10 @@
 #include <string>
 #include <list>
 #include "Blob.hpp"
+#include "Screen.hpp"
 
 using std::cout; using std::endl; using std::vector; using std::string;
-using std::list;
+using std::list; using std::cin;
 
 // Templates
 template <typename T>
@@ -86,8 +87,36 @@ void ex16_7(){
 
 void sec16_1_3() {
   Blob<int> b;
+  typedef Blob<string> StrBlob;
+
+  StrBlob s, t; 
+  cout << (s == t) << endl;
+  s.push_back("asdfs");
+  cout << s.back() << endl;
+  cout << (s == t) << endl;
   //cout << b.back() << endl;
 }
+
+void ex16_15(){
+  Screen<10, 10> s;
+  cin >> s;
+
+  std::cerr << "ahia" << endl;
+  std::cout << s << std::endl;
+}
+
+template <typename T> class ListItem;
+template <typename T> class List{
+  typedef ListItem<T> ListItem;
+ public:  
+  List();
+  List(const List &);
+  ~List();
+  void insert(ListItem *ptr, T value);
+ private:
+  ListItem *front, *end;
+};
+
 
 int main(){
   sec16_1_1();
@@ -95,4 +124,5 @@ int main(){
   ex16_6();
   ex16_7();
   sec16_1_3();
+  ex16_15();
 }

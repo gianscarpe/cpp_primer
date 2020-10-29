@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <list>
+#include "Blob.hpp"
 
 using std::cout; using std::endl; using std::vector; using std::string;
 using std::list;
